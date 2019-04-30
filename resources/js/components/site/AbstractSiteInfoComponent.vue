@@ -45,3 +45,15 @@
         }
     }
 </script>
+
+<style lang="scss">
+    .site-info {
+        h2 {
+            margin-bottom: 20px;
+        }
+
+        li {
+            margin-bottom: 3px;
+        }
+    }
+</style>

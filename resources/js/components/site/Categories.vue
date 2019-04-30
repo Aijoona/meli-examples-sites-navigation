@@ -1,6 +1,5 @@
 <template>
-    <div>
-
+    <div class="site-info">
         <h2>Categorías</h2>
 
         <ul class="currencies" v-if="listingTypes">

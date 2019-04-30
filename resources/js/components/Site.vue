@@ -137,9 +137,9 @@
         }
 
         .attributes {
-            margin: 20px 20px;
+            margin: 20px 0 20px;
             padding: 0;
-            font-size: 0.9rem;
+            font-size: 1rem;
 
             li {
                 text-transform: uppercase;
