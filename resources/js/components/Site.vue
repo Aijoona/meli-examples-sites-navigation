@@ -1,6 +1,6 @@
 <template>
     <div class="col-auto site">
-        <loading v-if="loading"></loading>
+        <loading v-if="siteLoading"></loading>
 
         <div v-if="site" class="flag">
             <img :alt="site.name" :src="site.flag"/>
@@ -60,7 +60,7 @@
     export default {
         data() {
             return {
-                loading: false,
+                siteLoading: false,
                 site: null,
                 error: null,
             };
@@ -75,16 +75,16 @@
         methods: {
             fetchData() {
                 this.error = this.site = null;
-                this.loading = true;
+                this.siteLoading = true;
                 axios
                     .get('/api/sites/' + this.$route.params.site_id)
                     .then(
                         response => {
-                            this.loading = false;
+                            this.siteLoading = false;
                             this.site = response.data;
                         },
                         response => {
-                            this.loading = false;
+                            this.siteLoading = false;
                             this.error = 'Uy! Algo salió mal.';
                         }
                     );

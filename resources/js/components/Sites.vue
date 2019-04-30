@@ -1,6 +1,6 @@
 <template>
     <div class="col-auto sites sites-shadow">
-        <div class="loading" v-if="loading">
+        <div class="loading" v-if="sitesLoading">
             <span>Loading...</span>
         </div>
 
@@ -28,7 +28,7 @@
     export default {
         data() {
             return {
-                loading: false,
+                sitesLoading: false,
                 sites: null,
                 error: null,
             };
@@ -39,11 +39,11 @@
         methods: {
             fetchData() {
                 this.error = this.sites = null;
-                this.loading = true;
+                this.sitesLoading = true;
                 axios
                     .get('/api/sites')
                     .then(response => {
-                        this.loading = false;
+                        this.sitesLoading = false;
                         this.sites = response.data.sort(function (one, another) {
                             return one.name > another.name ? 1 : -1;
                         });
