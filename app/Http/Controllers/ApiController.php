@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Tecnogo\MeliSdk\Entity\Category\Category;
 use Tecnogo\MeliSdk\Entity\Currency\Currency;
 use Tecnogo\MeliSdk\Entity\ListingType\ListingType;
 use Tecnogo\MeliSdk\Entity\PaymentMethod\PaymentMethod;
@@ -10,6 +11,9 @@ use Tecnogo\MeliSdk\Entity\Site\Site;
 
 class ApiController extends Controller
 {
+    /**
+     * @return array
+     */
     public function sites()
     {
         return \MeliSdk::sites()
@@ -30,6 +34,10 @@ class ApiController extends Controller
             });
     }
 
+    /**
+     * @param string $id
+     * @return array
+     */
     public function site($id)
     {
         $site = \MeliSdk::site($id);
@@ -41,6 +49,28 @@ class ApiController extends Controller
         ];
     }
 
+    /**
+     * @param $siteId
+     * @return array
+     */
+    public function categories($siteId)
+    {
+        $site = \MeliSdk::site($siteId);
+
+        return $site->categories()
+            ->map(function (Category $currency) {
+                return [
+                    'id' => $currency->id(),
+                    'name' => $currency->name()
+                ];
+            })
+            ->toArray();
+    }
+
+    /**
+     * @param string $siteId
+     * @return array
+     */
     public function currencies($siteId)
     {
         $site = \MeliSdk::site($siteId);
@@ -56,6 +86,10 @@ class ApiController extends Controller
             ->toArray();
     }
 
+    /**
+     * @param string $siteId
+     * @return array
+     */
     public function listingTypes($siteId)
     {
         $site = \MeliSdk::site($siteId);
@@ -70,6 +104,10 @@ class ApiController extends Controller
             ->toArray();
     }
 
+    /**
+     * @param string $siteId
+     * @return array
+     */
     public function paymentMethods($siteId)
     {
         $site = \MeliSdk::site($siteId);
@@ -90,6 +128,10 @@ class ApiController extends Controller
             ->toArray();
     }
 
+    /**
+     * @param string $siteId
+     * @return array
+     */
     public function shippingMethods($siteId)
     {
         $site = \MeliSdk::site($siteId);
