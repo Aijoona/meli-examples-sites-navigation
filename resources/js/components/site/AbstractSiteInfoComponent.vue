@@ -1,5 +1,6 @@
 <script>
     import axios from 'axios';
+    import Loading from './../Loading';
 
     export default {
         data() {
@@ -11,6 +12,9 @@
         },
         created() {
             this.fetchData();
+        },
+        components: {
+            Loading,
         },
         methods: {
             fetchData() {

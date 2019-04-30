@@ -13,6 +13,7 @@
                 </a>
             </li>
         </ul>
+        <loading v-if="loading"></loading>
     </div>
 </template>
 
