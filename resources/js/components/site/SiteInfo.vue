@@ -35,17 +35,6 @@
         padding: 30px;
         border-radius: 3px;
 
-        .loading {
-            width: 300px;
-            text-align: center;
-            min-height: 70vh;
-
-            span {
-                display: inline-block;
-                margin-top: 50%;
-            }
-        }
-
         .content {
             padding: 0 30px;
 

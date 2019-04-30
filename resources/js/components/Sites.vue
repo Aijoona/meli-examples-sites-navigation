@@ -65,17 +65,6 @@
         padding: 10px 0 10px;
         border-radius: 3px;
 
-        .loading {
-            width: 300px;
-            text-align: center;
-            min-height: 70vh;
-
-            span {
-                display: inline-block;
-                margin-top: 50%;
-            }
-        }
-
         .site-menu {
             li {
                 cursor: pointer;

@@ -106,17 +106,6 @@
         box-shadow: 5px 0px 10px 0px rgba(200, 150, 50, 0.7);
         z-index: 1;
 
-        .loading {
-            width: 300px;
-            text-align: center;
-            min-height: 70vh;
-
-            span {
-                display: inline-block;
-                margin-top: 50%;
-            }
-        }
-
         .flag {
             text-align: center;
             margin-bottom: 10px;
