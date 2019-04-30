@@ -1,8 +1,5 @@
 <template>
     <div>
-        <div v-if="error" class="error">
-            {{ error }}
-        </div>
 
         <h2>Categorías</h2>
 
@@ -13,6 +10,7 @@
                 </a>
             </li>
         </ul>
+        <error :message="error" v-if="error"></error>
         <loading v-if="loading"></loading>
     </div>
 </template>

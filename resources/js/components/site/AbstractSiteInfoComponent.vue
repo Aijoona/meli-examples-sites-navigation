@@ -1,5 +1,6 @@
 <script>
     import axios from 'axios';
+    import Error from './Error';
     import Loading from './../Loading';
 
     export default {
@@ -14,6 +15,7 @@
             this.fetchData();
         },
         components: {
+            Error,
             Loading,
         },
         methods: {
@@ -22,10 +24,16 @@
                 this.loading = true;
                 axios
                     .get('/api/sites/' + this.$route.params.site_id + '/' + this.getEndpoint())
-                    .then(response => {
-                        this.loading = false;
-                        this.data = response.data;
-                    });
+                    .then(
+                        response => {
+                            this.loading = false;
+                            this.data = response.data;
+                        },
+                        response => {
+                            this.loading = false;
+                            this.error = 'Uy! Algo salió mal.';
+                        }
+                    )
             }
         },
         watch: {
