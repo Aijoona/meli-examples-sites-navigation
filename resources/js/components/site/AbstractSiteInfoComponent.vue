@@ -1,6 +1,7 @@
 <script>
     import axios from 'axios';
     import Error from './Error';
+    import NoResult from './NoResult';
     import Loading from './../Loading';
 
     export default {
@@ -15,6 +16,7 @@
             this.fetchData();
         },
         components: {
+            NoResult,
             Error,
             Loading,
         },

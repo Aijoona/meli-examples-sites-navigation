@@ -16,6 +16,7 @@
                 </a>
             </li>
         </ul>
+        <no-result v-if="data && data.length == 0"></no-result>
         <error :message="error" v-if="error"></error>
         <loading v-if="loading"></loading>
     </div>
