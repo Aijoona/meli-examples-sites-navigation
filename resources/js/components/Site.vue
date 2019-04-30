@@ -20,31 +20,31 @@
         </div>
 
         <ul v-if="site" class="attributes">
-            <li>
+            <li :class="$route.params.endpoint == 'categories' ? 'active' : ''">
                 <router-link
                         :to="{ name: 'details', params: { site_id: $route.params.site_id, endpoint: 'categories' } }">
                     Ver categorías
                 </router-link>
             </li>
-            <li>
+            <li :class="$route.params.endpoint == 'payment_methods' ? 'active' : ''">
                 <router-link
                         :to="{ name: 'details', params: { site_id: $route.params.site_id, endpoint: 'payment_methods' } }">
                     Ver métodos de pago
                 </router-link>
             </li>
-            <li>
+            <li :class="$route.params.endpoint == 'shipping_methods' ? 'active' : ''">
                 <router-link
                         :to="{ name: 'details', params: { site_id: $route.params.site_id, endpoint: 'shipping_methods' } }">
                     Ver métodos de envío
                 </router-link>
             </li>
-            <li>
+            <li :class="$route.params.endpoint == 'currencies' ? 'active' : ''">
                 <router-link
                         :to="{ name: 'details', params: { site_id: $route.params.site_id, endpoint: 'currencies' } }">
                     Ver monedas soportadas
                 </router-link>
             </li>
-            <li>
+            <li :class="$route.params.endpoint == 'listing_types' ? 'active' : ''">
                 <router-link
                         :to="{ name: 'details', params: { site_id: $route.params.site_id, endpoint: 'listing_types' } }">
                     Ver tipos de publicaciones
@@ -157,12 +157,18 @@
 
                 a {
                     display: block;
-                    padding: 6px 90px 6px 10px;
+                    padding: 6px 90px 6px 20px;
                     color: #555;
 
                     &:hover {
-                        background-color: #f8d032;
+                        background-color: darken(desaturate(adjust-hue(#f8d032, -7), 6.60), 9.02);
                         text-decoration: none;
+                    }
+                }
+
+                &.active {
+                    a {
+                        background-color: darken(desaturate(adjust-hue(#f8d032, -7), 6.60), 9.02);
                     }
                 }
             }
