@@ -17,8 +17,6 @@
                 </router-link>
             </li>
         </ul>
-
-        <a class="cache-clear" href="/cache/clear">Limpiar caché</a>
     </div>
 </template>
 
