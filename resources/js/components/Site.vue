@@ -69,9 +69,6 @@
         created() {
             this.fetchData();
         },
-        activated() {
-            console.log('jojojo');
-        },
         components: {
             Sites
         },
