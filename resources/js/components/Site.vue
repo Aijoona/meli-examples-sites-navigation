@@ -1,8 +1,6 @@
 <template>
     <div class="col-auto site">
-        <div v-if="loading" class="loading">
-            Loading...
-        </div>
+        <loading v-if="loading"></loading>
 
         <div v-if="site" class="flag">
             <img :alt="site.name" :src="site.flag"/>
@@ -57,6 +55,7 @@
 <script>
     import axios from 'axios';
     import Sites from './Sites';
+    import Loading from './Loading';
 
     export default {
         data() {
@@ -70,7 +69,8 @@
             this.fetchData();
         },
         components: {
-            Sites
+            Sites,
+            Loading
         },
         methods: {
             fetchData() {
@@ -78,10 +78,16 @@
                 this.loading = true;
                 axios
                     .get('/api/sites/' + this.$route.params.site_id)
-                    .then(response => {
-                        this.loading = false;
-                        this.site = response.data;
-                    });
+                    .then(
+                        response => {
+                            this.loading = false;
+                            this.site = response.data;
+                        },
+                        response => {
+                            this.loading = false;
+                            this.error = 'Uy! Algo salió mal.';
+                        }
+                    );
             }
         },
         watch: {
@@ -111,6 +117,10 @@
                 width: 20%;
                 border-radius: 10%;
             }
+        }
+
+        .loading {
+            margin: 100px 155px;
         }
 
         .title {
