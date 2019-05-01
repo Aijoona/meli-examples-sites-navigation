@@ -36,6 +36,10 @@ Generar el application key:
 
 > `php artisan key:generate`
 
+Opcional: "Calentar" el caché:
+
+> `php artisan melisdk:warmup-cache resources/cache/warmup.php`
+
 ### Uso
 
 > ` php artisan:serve`
