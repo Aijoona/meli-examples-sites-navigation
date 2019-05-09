@@ -4,6 +4,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <link rel="canonical" href="{{ url('/') }}" />
+
     <title>Tecnogo - Navegación de sitios</title>
 
     <meta property="og:image" content="https://www.tecnogo.com/wp-content/uploads/2019/03/tecnogo-logo.png"/>
